@@ -75,6 +75,7 @@
     "react": "^19.0.0",
     "react-apexcharts": "^1.7.0",
     "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.8",
     "recharts": "^2.13.0",
     "simplebar-react": "^3.3.2",
     "swiper": "^12.0.2",
