@@ -1,5 +1,20 @@
 {
   "version": 2,
+<<<<<<< HEAD
+=======
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+>>>>>>> 3a75d0d34feaba10190804190931b257bf885329
   "env": {
     "NODE_ENV": "production"
   }
