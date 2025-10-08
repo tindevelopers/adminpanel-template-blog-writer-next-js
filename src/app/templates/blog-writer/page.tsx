@@ -50,18 +50,6 @@ export default function BlogWriterDashboardPage() {
         </div>
       </div>
 
-        {/* Dashboard Widgets */}
-        <div className="col-span-12 xl:col-span-7 min-w-0">
-          <BlogWriterDashboard />
-        </div>
-
-        {/* Sidebar Widgets */}
-        <div className="col-span-12 xl:col-span-5 space-y-6 min-w-0">
-          <UpcomingSchedule />
-          <AnalyticsPreview />
-        </div>
-      </div>
-
       {/* Quick Actions */}
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 md:p-6">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 break-words">
