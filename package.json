@@ -1,6 +1,6 @@
 {
   "name": "tinadmin-blog-writer-template",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Blog Writer Template - A comprehensive blog management and content creation platform",
   "private": false,
   "main": "bin/create-blog-writer.js",
