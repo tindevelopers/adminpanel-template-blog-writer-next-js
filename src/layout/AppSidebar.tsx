@@ -3,17 +3,9 @@ import React, { useEffect, useRef, useCallback, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  AiIcon,
-  CartIcon,
-  ChatIcon,
   ChevronDownIcon,
-  GridIcon,
   HorizontaLDots,
   MailIcon,
-  PageIcon,
-  PieChartIcon,
-  TableIcon,
-  TaskIcon,
 } from "../icons";
 import SidebarWidget from "./SidebarWidget";
 
@@ -34,16 +26,21 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    name: "Dashboard",
-    icon: <GridIcon />,
+    name: "Blog Writer",
+    icon: <MailIcon />,
+    new: true,
     subItems: [
-      { name: "eCommerce", path: "/admin" },
-      { name: "Analytics", path: "/analytics" },
-      { name: "Marketing", path: "/marketing" },
-      { name: "CRM", path: "/crm" },
-      { name: "Stocks", path: "/stocks" },
-      { name: "SaaS", path: "/saas", new: true },
-      { name: "Logistics", path: "/logistics", new: true },
+      { name: "Dashboard", path: "/templates/blog-writer" },
+      { name: "Drafts", path: "/templates/blog-writer/drafts", new: true },
+      { name: "Media Library", path: "/templates/blog-writer/media", new: true },
+      { name: "Content Calendar", path: "/templates/blog-writer/calendar", pro: true },
+      { name: "Post Analytics", path: "/templates/blog-writer/analytics", pro: true },
+      { name: "SEO Tools", path: "/templates/blog-writer/seo", pro: true },
+      { name: "Publishing", path: "/templates/blog-writer/publishing", pro: true },
+      { name: "Team Management", path: "/templates/blog-writer/team", new: true },
+      { name: "Content Templates", path: "/templates/blog-writer/templates", new: true },
+      { name: "Workflows", path: "/templates/blog-writer/workflows", new: true },
+      { name: "Integrations", path: "/templates/blog-writer/integrations", new: true },
     ],
   },
 ];
