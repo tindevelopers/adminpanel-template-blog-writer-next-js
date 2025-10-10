@@ -256,20 +256,16 @@ export default function DataTableTwo() {
                         {label}
                       </p>
                       <button className="flex flex-col gap-0.5">
-                        <AngleUpIcon
-                          className={`text-gray-300 dark:text-gray-700 ${
+                        <img src={AngleUpIcon} alt="Sort ascending" className={`text-gray-300 dark:text-gray-700 ${
                             sortKey === key && sortOrder === "asc"
                               ? "text-brand-500"
                               : ""
-                          }`}
-                        />
-                        <AngleDownIcon
-                          className={`text-gray-300 dark:text-gray-700 ${
+                          }`} />
+                        <img src={AngleDownIcon} alt="Sort descending" className={`text-gray-300 dark:text-gray-700 ${
                             sortKey === key && sortOrder === "desc"
                               ? "text-brand-500"
                               : ""
-                          }`}
-                        />
+                          }`} />
                       </button>
                     </div>
                   </TableCell>

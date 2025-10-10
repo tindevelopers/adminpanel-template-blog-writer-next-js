@@ -283,8 +283,8 @@ export default function DataTableThree() {
                       </span>
                     </div>
                     <button className="flex flex-col gap-0.5">
-                      <AngleUpIcon className="text-gray-300 dark:text-gray-700" />
-                      <AngleDownIcon className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleUpIcon} alt="Sort ascending" className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleDownIcon} alt="Sort descending" className="text-gray-300 dark:text-gray-700" />
                     </button>
                   </div>
                 </TableCell>
@@ -297,8 +297,8 @@ export default function DataTableThree() {
                       Position
                     </p>
                     <button className="flex flex-col gap-0.5">
-                      <AngleUpIcon className="text-gray-300 dark:text-gray-700" />
-                      <AngleDownIcon className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleUpIcon} alt="Sort ascending" className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleDownIcon} alt="Sort descending" className="text-gray-300 dark:text-gray-700" />
                     </button>
                   </div>
                 </TableCell>
@@ -311,8 +311,8 @@ export default function DataTableThree() {
                       Salary
                     </p>
                     <button className="flex flex-col gap-0.5">
-                      <AngleUpIcon className="text-gray-300 dark:text-gray-700" />
-                      <AngleDownIcon className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleUpIcon} alt="Sort ascending" className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleDownIcon} alt="Sort descending" className="text-gray-300 dark:text-gray-700" />
                     </button>
                   </div>
                 </TableCell>
@@ -325,8 +325,8 @@ export default function DataTableThree() {
                       Office
                     </p>
                     <button className="flex flex-col gap-0.5">
-                      <AngleUpIcon className="text-gray-300 dark:text-gray-700" />
-                      <AngleDownIcon className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleUpIcon} alt="Sort ascending" className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleDownIcon} alt="Sort descending" className="text-gray-300 dark:text-gray-700" />
                     </button>
                   </div>
                 </TableCell>
@@ -339,8 +339,8 @@ export default function DataTableThree() {
                       Status
                     </p>
                     <button className="flex flex-col gap-0.5">
-                      <AngleUpIcon className="text-gray-300 dark:text-gray-700" />
-                      <AngleDownIcon className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleUpIcon} alt="Sort ascending" className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleDownIcon} alt="Sort descending" className="text-gray-300 dark:text-gray-700" />
                     </button>
                   </div>
                 </TableCell>
@@ -353,8 +353,8 @@ export default function DataTableThree() {
                       Action
                     </p>
                     <button className="flex flex-col gap-0.5">
-                      <AngleUpIcon className="text-gray-300 dark:text-gray-700" />
-                      <AngleDownIcon className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleUpIcon} alt="Sort ascending" className="text-gray-300 dark:text-gray-700" />
+                      <img src={AngleDownIcon} alt="Sort descending" className="text-gray-300 dark:text-gray-700" />
                     </button>
                   </div>
                 </TableCell>

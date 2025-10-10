@@ -109,14 +109,12 @@ const AppSidebar: React.FC = () => {
                 </span>
               )}
               {(isExpanded || isHovered || isMobileOpen) && nav.subItems && (
-                <ChevronDownIcon
-                  className={`ml-auto w-5 h-5 transition-transform duration-200  ${
+                <img src={ChevronDownIcon} alt="Expand menu" className={`ml-auto w-5 h-5 transition-transform duration-200  ${
                     openSubmenu?.type === menuType &&
                     openSubmenu?.index === index
                       ? "rotate-180 text-brand-500"
                       : ""
-                  }`}
-                />
+                  }`} />
               )}
             </button>
           ) : (
@@ -176,15 +174,13 @@ const AppSidebar: React.FC = () => {
                             <span className="menu-dropdown-badge">new</span>
                           )}
                         </span>
-                        <ChevronDownIcon
-                          className={`ml-auto w-4 h-4 transition-transform duration-200 ${
+                        <img src={ChevronDownIcon} alt="Expand submenu" className={`ml-auto w-4 h-4 transition-transform duration-200 ${
                             openNestedSubmenu?.type === menuType && 
                             openNestedSubmenu?.index === index && 
                             openNestedSubmenu?.subIndex === subIndex
                               ? "rotate-180 text-brand-500"
                               : ""
-                          }`}
-                        />
+                          }`} />
                       </button>
                     ) : (
                       // Regular link
