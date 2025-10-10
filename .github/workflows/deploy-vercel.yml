@@ -81,9 +81,7 @@ jobs:
         with:
           script: |
             const deploymentUrl = '${{ steps.deploy.outputs.deployment_url }}';
-            const message = \`✅ Successfully deployed to Vercel!
-
-🔗 **Deployment URL**: \${deploymentUrl}\`;
+            const message = `✅ Successfully deployed to Vercel!\n\n🔗 **Deployment URL**: ${deploymentUrl}`;
             
             // Create a commit status
             github.rest.repos.createCommitStatus({
