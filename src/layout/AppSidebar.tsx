@@ -2,6 +2,8 @@
 import React, { useEffect, useRef, useCallback, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useSidebar } from "../context/SidebarContext";
 import {
   ChevronDownIcon,
   HorizontaLDots,
@@ -338,119 +340,6 @@ const AppSidebar: React.FC = () => {
       }
     });
 
-    // Check others navigation items
-    if (!submenuMatched) {
-      othersItems.forEach((nav, index) => {
-        if (nav.subItems) {
-          nav.subItems.forEach((subItem) => {
-            if (subItem.path && isActive(subItem.path)) {
-              setOpenSubmenu({
-                type: "others",
-                index,
-              });
-              submenuMatched = true;
-            }
-          });
-        }
-      });
-    }
-
-    // Check support navigation items (templates section)
-    if (!submenuMatched) {
-      templatesSection.forEach((nav) => {
-        if (nav.path && isActive(nav.path)) {
-          // Templates are direct links, no submenu needed
-          submenuMatched = true;
-        }
-      });
-    }
-
-    // Check support navigation items
-    if (!submenuMatched) {
-      supportItems.forEach((nav, index) => {
-        if (nav.subItems) {
-          nav.subItems.forEach((subItem) => {
-            if (subItem.path && isActive(subItem.path)) {
-              setOpenSubmenu({
-                type: "support",
-                index,
-              });
-              submenuMatched = true;
-            }
-          });
-        }
-      });
-    }
-
-    // Check AI Customer Care template navigation items
-    if (!submenuMatched) {
-      aiCustomerCareItems.forEach((nav, index) => {
-        if (nav.subItems) {
-          nav.subItems.forEach((subItem, subIndex) => {
-            // Check direct path matches
-            if (subItem.path && isActive(subItem.path)) {
-              setOpenSubmenu({
-                type: "templates",
-                index,
-              });
-              submenuMatched = true;
-            }
-            // Check nested subItems for accordion headers
-            if (subItem.subItems && subItem.isAccordionHeader) {
-              subItem.subItems.forEach((nestedItem) => {
-                if (isActive(nestedItem.path)) {
-                  setOpenSubmenu({
-                    type: "templates",
-                    index,
-                  });
-                  setOpenNestedSubmenu({
-                    type: "templates",
-                    index,
-                    subIndex,
-                  });
-                  submenuMatched = true;
-                }
-              });
-            }
-          });
-        }
-      });
-    }
-
-    // Check Blog Writer template navigation items
-    if (!submenuMatched) {
-      blogWriterItems.forEach((nav, index) => {
-        if (nav.subItems) {
-          nav.subItems.forEach((subItem, subIndex) => {
-            // Check direct path matches
-            if (subItem.path && isActive(subItem.path)) {
-              setOpenSubmenu({
-                type: "templates",
-                index,
-              });
-              submenuMatched = true;
-            }
-            // Check nested subItems for accordion headers
-            if (subItem.subItems && subItem.isAccordionHeader) {
-              subItem.subItems.forEach((nestedItem) => {
-                if (isActive(nestedItem.path)) {
-                  setOpenSubmenu({
-                    type: "templates",
-                    index,
-                  });
-                  setOpenNestedSubmenu({
-                    type: "templates",
-                    index,
-                    subIndex,
-                  });
-                  submenuMatched = true;
-                }
-              });
-            }
-          });
-        }
-      });
-    }
 
     // If no submenu item matches, close the open submenu
     if (!submenuMatched) {
