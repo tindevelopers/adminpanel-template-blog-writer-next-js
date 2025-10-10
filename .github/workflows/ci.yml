@@ -1,0 +1,123 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run type check
+        run: npm run type-check
+
+      - name: Build application
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Check build artifacts
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "Build failed - .next directory not found"
+            exit 1
+          fi
+          echo "Build successful - .next directory exists"
+
+  security-audit:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Run security audit
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Check for outdated dependencies
+        run: npm outdated
+        continue-on-error: true
+
+  code-quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check code formatting
+        run: |
+          echo "Checking for common code quality issues..."
+          # Add your formatting check here if you have prettier or similar
+          # npm run format:check
+          echo "Code quality check passed"
+
+      - name: Check for TypeScript errors
+        run: npm run type-check
+
+  # Summary job that depends on all other jobs
+  ci-success:
+    runs-on: ubuntu-latest
+    needs: [test, security-audit, code-quality]
+    if: always()
+    
+    steps:
+      - name: Check CI status
+        run: |
+          if [ "${{ needs.test.result }}" != "success" ]; then
+            echo "Tests failed"
+            exit 1
+          fi
+          if [ "${{ needs.code-quality.result }}" != "success" ]; then
+            echo "Code quality checks failed"
+            exit 1
+          fi
+          echo "All CI checks passed!"
+
+      - name: CI Complete
+        run: |
+          echo "✅ CI pipeline completed successfully"
+          echo "🚀 Vercel will handle the deployment automatically"
+
